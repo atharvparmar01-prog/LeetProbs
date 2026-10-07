@@ -1,16 +1,22 @@
 class MagicDictionary {
 public:
     unordered_set<string> st;
+    unordered_set<int> len;
     MagicDictionary() {
         unordered_set<string> st;
+        unordered_set<int> len;
     }
     
     void buildDict(vector<string> dictionary) {
         unordered_set<string> temp(dictionary.begin(),dictionary.end());
         st = temp;
+        for(auto i:st){
+            len.insert(i.size());
+        }
     }
     
     bool search(string searchWord) {
+        if(len.count(searchWord.size())==0){return false;}
         int n = searchWord.size();
         string tempword = searchWord;
         vector<char> alpha = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
