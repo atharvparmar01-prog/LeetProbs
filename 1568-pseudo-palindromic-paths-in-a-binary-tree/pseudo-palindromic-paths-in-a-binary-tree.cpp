@@ -22,10 +22,8 @@ public:
 
         if(!(root->left) && !(root->right)){
             int oddnum=0;
-            int evennum=0;
             for(auto it:mpp){
-                if(it.second%2==0){evennum++;}
-                else{oddnum++;}
+                if(it.second%2!=0){oddnum++;}
             }
             if(oddnum<2){
                 cnt++;
